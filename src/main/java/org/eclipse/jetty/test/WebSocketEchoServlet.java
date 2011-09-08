@@ -39,8 +39,8 @@ public class WebSocketEchoServlet extends WebSocketServlet
         {
             LOG.info("onOpen(" + connection + ")");
             this.conn = connection;
-            this.conn.setMaxTextMessageSize(MBYTE * 2);
-            this.conn.setMaxBinaryMessageSize(MBYTE * 2);
+            this.conn.setMaxTextMessageSize(MBYTE * 10);
+            this.conn.setMaxBinaryMessageSize(MBYTE * 10);
         }
 
         public void onClose(int closeCode, String message)
@@ -52,6 +52,7 @@ public class WebSocketEchoServlet extends WebSocketServlet
         {
             try
             {
+                LOG.info("onMessage "+data.length()+"chars");
                 conn.sendMessage(data);
             }
             catch (IOException e)
@@ -64,6 +65,7 @@ public class WebSocketEchoServlet extends WebSocketServlet
         {
             try
             {
+                LOG.info("onMessage "+length+"bytes");
                 conn.sendMessage(data,offset,length);
             }
             catch (IOException e)
