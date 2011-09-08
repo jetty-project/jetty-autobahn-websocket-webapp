@@ -28,7 +28,7 @@ public class WebSocketEchoServlet extends WebSocketServlet
         return new EchoWebSocket();
     }
 
-    private static class EchoWebSocket implements WebSocket, WebSocket.OnTextMessage
+    private static class EchoWebSocket implements WebSocket, WebSocket.OnTextMessage, WebSocket.OnBinaryMessage
     {
         private static final Logger LOG = LoggerFactory.getLogger(WebSocketEchoServlet.class);
         private static final int KBYTE = 1024;
@@ -56,7 +56,19 @@ public class WebSocketEchoServlet extends WebSocketServlet
             }
             catch (IOException e)
             {
-                LOG.error("Unable to send message",e);
+                LOG.error("Unable to send text message",e);
+            }
+        }
+
+        public void onMessage(byte[] data, int offset, int length)
+        {
+            try
+            {
+                conn.sendMessage(data,offset,length);
+            }
+            catch (IOException e)
+            {
+                LOG.error("Unable to send binary message",e);
             }
         }
     }

@@ -6,6 +6,9 @@
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>jetty-autobahn-websocket-webapp Maven Webapp</name>
+  <properties>
+    <jetty-version>7.5.1-SNAPSHOT</jetty-version>
+  </properties>
   <dependencies>
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -17,9 +20,15 @@
     <dependency>
       <groupId>org.eclipse.jetty</groupId>
       <artifactId>jetty-websocket</artifactId>
-      <version>7.5.0.v20110901</version>
+      <version>${jetty-version}</version>
       <type>jar</type>
-      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.jetty</groupId>
+      <artifactId>jetty-servlet</artifactId>
+      <version>${jetty-version}</version>
+      <type>jar</type>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>javax.servlet</groupId>
