@@ -19,7 +19,7 @@ public class WebSocketEchoServlet extends WebSocketServlet
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
-        getServletContext().getNamedDispatcher("default").forward(req,resp);
+        resp.sendError(404);
     }
 
     public WebSocket doWebSocketConnect(HttpServletRequest request, String protocol)
