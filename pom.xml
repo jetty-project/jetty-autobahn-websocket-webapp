@@ -9,6 +9,35 @@
   <properties>
     <jetty-version>7.5.1-SNAPSHOT</jetty-version>
   </properties>
+
+      <repositories>
+        <repository>
+          <id>oss.sonatype.org</id>
+          <name>Jetty Snapshot Repository</name>
+          <layout>default</layout>
+          <url>http://oss.sonatype.org/content/groups/jetty-with-staging</url>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+        </repository>
+        <repository>
+          <id>oss.sonatype.org staging</id>
+          <name>Staging Repository</name>
+          <layout>default</layout>
+          <url>https://oss.sonatype.org/content/groups/staging</url>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+        </repository>
+      </repositories>
+
+
   <dependencies>
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -54,6 +83,30 @@
           <target>1.6</target>
         </configuration>
       </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <configuration>
+              <classpathScope>test</classpathScope>
+              <executable>java</executable>
+              <arguments>
+                <argument>-showversion</argument>
+                <argument>-Xmx512m</argument>
+                <argument>-Xms512m</argument>
+                <argument>-Xmn256m</argument>
+                <argument>-XX:+PrintCommandLineFlags</argument>
+                <argument>-verbose:gc</argument>
+                <argument>-XX:+UseParallelOldGC</argument>
+                <argument>-XX:-UseAdaptiveSizePolicy</argument>
+                <argument>-cp</argument>
+                <classpath />
+                <argument>org.eclipse.jetty.test.TestServer</argument>
+                <argument>8080</argument>
+              </arguments>
+         </configuration>
+      </plugin>
+
     </plugins>
   </build>
 </project>
