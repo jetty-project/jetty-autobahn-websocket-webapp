@@ -10,7 +10,8 @@
     WebSocket Echo Servlet used to test jetty-websocket implementation using autobahn websocket test suite.
   </description>
   <properties>
-    <jetty-version>7.5.2-SNAPSHOT</jetty-version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <jetty-version>7.5.4.v20111024</jetty-version>
   </properties>
   <dependencies>
     <dependency>
