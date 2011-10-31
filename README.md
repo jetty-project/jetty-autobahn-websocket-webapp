@@ -18,7 +18,7 @@ Install Autobahn itself
 -----------------------
 
     $ cd Autobahn
-    $ git checkout v0.4.2
+    $ git checkout v0.4.3
     $ cd lib/python
     $ sudo python setup.py install
 
@@ -30,7 +30,7 @@ Configure Autobahn for testing with jetty
     $ vim fuzzing_client_spec.json
 
 Note: make sure the agent, hostname, and port make sense.
-The defaults present in git tag v0.4.2 are generally sane and only the agent needs updating.
+The defaults present in git tag v0.4.3 are generally sane and only the agent needs updating.
 
 
 Run Jetty
