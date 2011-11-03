@@ -16,11 +16,16 @@ package org.eclipse.jetty.test;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
+import org.eclipse.jetty.util.log.StdErrLog;
 
 public class TestServer
 {
     public static void main(String[] args) throws Exception
     {
+        System.setProperty("org.eclipse.jetty.util.log.class",StdErrLog.class.getName());
+        System.setProperty("org.eclipse.jetty.websocket.STRICT","true");
+        System.setProperty("org.eclipse.jetty.LEVEL","DEBUG");
+        
         Server server = new Server(8080);
 
         ServletContextHandler context = new ServletContextHandler();
