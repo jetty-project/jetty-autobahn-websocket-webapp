@@ -22,10 +22,11 @@ public class TestServer
 {
     public static void main(String[] args) throws Exception
     {
+        // Configure Logging
         System.setProperty("org.eclipse.jetty.util.log.class",StdErrLog.class.getName());
-        System.setProperty("org.eclipse.jetty.websocket.STRICT","true");
         System.setProperty("org.eclipse.jetty.LEVEL","DEBUG");
         
+        // Start Server
         Server server = new Server(8080);
 
         ServletContextHandler context = new ServletContextHandler();
