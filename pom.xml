@@ -75,7 +75,6 @@
             <argument>-verbose:gc</argument>
             <argument>-XX:+UseParallelOldGC</argument>
             <argument>-XX:-UseAdaptiveSizePolicy</argument>
-            <argument>-Dorg.eclipse.jetty.websocket.BRUTAL=true</argument>
             <argument>-cp</argument>
             <classpath />
             <argument>org.eclipse.jetty.test.TestServer</argument>
