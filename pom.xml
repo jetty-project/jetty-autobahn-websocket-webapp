@@ -11,7 +11,7 @@
   </description>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <jetty-version>7.6.0-SNAPSHOT</jetty-version>
+    <jetty-version>7.6.0.RC3</jetty-version>
   </properties>
   <dependencies>
     <dependency>
@@ -87,6 +87,35 @@
             <argument>org.eclipse.jetty.test.TestServer</argument>
             <argument>8080</argument>
           </arguments>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.mortbay.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>${jetty-version}</version>
+        <configuration>
+          <scanIntervalSeconds>5</scanIntervalSeconds>
+          <webAppConfig>
+            <contextPath>/wstest</contextPath>
+          </webAppConfig>
+          <connectors>
+            <connector implementation="org.eclipse.jetty.server.bio.SocketConnector">
+              <port>8080</port>
+            </connector>
+            <connector implementation="org.eclipse.jetty.server.ssl.SslSocketConnector">
+              <port>8443</port>
+              <sslContextFactory implementation="org.eclipse.jetty.http.ssl.SslContextFactory">
+                <keyStore>src/main/config/keystore</keyStore>
+                <keyStorePassword>OBF:1vny1zlo1x8e1vnw1vn61x8g1zlu1vn4</keyStorePassword>
+                <keyManagerPassword>OBF:1u2u1wml1z7s1z7a1wnl1u2g</keyManagerPassword>
+                <trustStore>src/main/config/keystore</trustStore>
+                <trustStorePassword>OBF:1vny1zlo1x8e1vnw1vn61x8g1zlu1vn4</trustStorePassword>
+              </sslContextFactory>
+              <maxIdleTime>30000</maxIdleTime>
+              <acceptors>2</acceptors>
+              <acceptQueueSize>100</acceptQueueSize>
+            </connector>
+          </connectors>
         </configuration>
       </plugin>
     </plugins>
