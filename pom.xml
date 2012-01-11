@@ -11,7 +11,7 @@
   </description>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <jetty-version>7.5.5-SNAPSHOT</jetty-version>
+    <jetty-version>7.6.0-SNAPSHOT</jetty-version>
   </properties>
   <dependencies>
     <dependency>
@@ -26,6 +26,13 @@
       <artifactId>jetty-websocket</artifactId>
       <version>${jetty-version}</version>
       <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.jetty</groupId>
+      <artifactId>jetty-server</artifactId>
+      <version>${jetty-version}</version>
+      <type>jar</type>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.eclipse.jetty</groupId>
