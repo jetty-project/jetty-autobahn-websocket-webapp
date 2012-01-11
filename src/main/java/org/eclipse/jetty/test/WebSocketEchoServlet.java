@@ -52,7 +52,12 @@ public class WebSocketEchoServlet extends WebSocketServlet
         {
             try
             {
-                LOG.info("onMessage "+data.length()+"chars");
+                LOG.info("onMessage "+data.length()+" chars");
+                if (data.length() > 0)
+                {
+                    int preview = Math.min(80,data.length());
+                    LOG.info("data = \"" + data.substring(0,preview) + "\"");
+                }
                 conn.sendMessage(data);
             }
             catch (IOException e)
