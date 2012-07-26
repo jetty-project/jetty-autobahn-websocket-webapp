@@ -21,8 +21,17 @@ public class TestServer
 {
     public static void main(String[] args) throws Exception
     {
+        int port = 9001;
+
+        if (args.length > 0)
+        {
+            port = Integer.parseInt(args[0]);
+        }
+
+        System.out.printf("Jetty %s Websocket Echo Server%n",Server.getVersion());
+
         // Start Server
-        Server server = new Server(8080);
+        Server server = new Server(port);
 
         ServletContextHandler context = new ServletContextHandler();
         context.setContextPath("/");
@@ -31,7 +40,16 @@ public class TestServer
         // Serve some hello world servlets
         context.addServlet(new ServletHolder(new WebSocketEchoServlet()),"/");
 
-        server.start();
-        server.join();
+        try
+        {
+            System.out.printf("Starting on port %d ...%n", port);
+            server.start();
+            System.out.println("Ready.");
+            server.join();
+        }
+        finally
+        {
+            System.out.println("Shutting Down ...");
+        }
     }
 }
