@@ -21,6 +21,6 @@ Run Jetty
 Run the websocket tests
 -----------------------
 
-    $ wstest -m echoclient ws://localhost:8080/
+    $ wstest --mode=fuzzingclient --spec=fuzzingclient.json
 
 

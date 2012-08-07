@@ -18,11 +18,15 @@ public class WebSocketEchoServlet extends WebSocketServlet
     @Override
     public void registerWebSockets(WebSocketServerFactory factory)
     {
+        // Test cases 9.x uses BIG frame sizes, let policy handle them.
+        int bigFrameSize = 20 * MBYTE;
+
+        factory.getPolicy().setBufferSize(bigFrameSize);
+        factory.getPolicy().setMaxPayloadSize(bigFrameSize);
+        factory.getPolicy().setMaxTextMessageSize(bigFrameSize);
+        factory.getPolicy().setMaxBinaryMessageSize(bigFrameSize);
+
         factory.register(EchoSocket.class);
-        factory.getPolicy().setMaxPayloadSize(10 * MBYTE);
-        factory.getPolicy().setBufferSize(100 * KBYTE);
-        factory.getPolicy().setMaxBinaryMessageSize(10 * MBYTE);
-        factory.getPolicy().setMaxTextMessageSize(10 * MBYTE);
     }
 
     @Override
