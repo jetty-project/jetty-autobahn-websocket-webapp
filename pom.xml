@@ -4,14 +4,14 @@
   <groupId>org.eclipse.jetty.test</groupId>
   <artifactId>jetty-autobahn-websocket-webapp</artifactId>
   <packaging>war</packaging>
-  <version>9.0.0-SNAPSHOT</version>
+  <version>9.0.0.M1</version>
   <name>jetty-autobahn-websocket-webapp Maven Webapp</name>
   <description>
     WebSocket Echo Servlet used to test jetty-websocket implementation using autobahn websocket test suite.
   </description>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <jetty-version>9.0.0-SNAPSHOT</jetty-version>
+    <jetty-version>9.0.0.M1</jetty-version>
   </properties>
   <dependencies>
     <dependency>

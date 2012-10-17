@@ -13,6 +13,8 @@
 
 package org.eclipse.jetty.test;
 
+import java.net.InetAddress;
+
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
@@ -44,6 +46,8 @@ public class TestServer
         {
             System.out.printf("Starting on port %d ...%n", port);
             server.start();
+            InetAddress addr = InetAddress.getLocalHost();
+            System.out.printf("WebSocket URI: ws://%s:%d/%n", addr.getHostName(), port);
             System.out.println("Ready.");
             server.join();
         }
