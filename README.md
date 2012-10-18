@@ -1,49 +1,34 @@
 Running the Autobahn Server Tests
 =================================
 
-Grab yourself a copy of autobahn
---------------------------------
+Install the Autobahn wstest command line tool
+---------------------------------------------
 
-    $ git clone https://github.com/oberstet/Autobahn
-
-
-Install the python dependencies
--------------------------------
+The full installation instructions can be found at [http://autobahn.ws/testsuite/installation]
 
     $ sudo apt-get install python python-dev python-twisted
     $ sudo apt-get install python-setuptools
+    $ sudo easy_install autobahntestsuite
 
 
-Install Autobahn itself
------------------------
-
-    $ cd Autobahn
-    $ git checkout v0.4.3
-    $ cd lib/python
-    $ sudo python setup.py install
-
-
-Configure Autobahn for testing with jetty
------------------------------------------
-
-    $ cd Autobahn/testsuite/websockets
-    $ vim fuzzing_client_spec.json
-
-Note: make sure the agent, hostname, and port make sense.
-The defaults present in git tag v0.4.3 are generally sane and only the agent needs updating.
-
-
-Run Jetty
----------
+Compile Jetty Test Server
+-------------------------
 
     $ cd jetty-autobahn-websocket-webapp
+    $ mvn clean install
+
+
+Run Jetty Test Server
+---------------------
+
     $ mvn exec:exec
+
+The server is now started, and listening on [ws://localhost:9001/]
 
 
 Run the websocket tests
 -----------------------
 
-    $ cd Autobahn/testsuite/websocket
-    $ python fuzzing_client.py
+    $ wstest --mode=fuzzingclient --spec=fuzzingclient.json
 
 
