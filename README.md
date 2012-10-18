@@ -23,7 +23,7 @@ Run Jetty Test Server
 
     $ mvn exec:exec
 
-The server is now started, and listening on [ws://localhost:9001/]
+The server is now started, and listening on `ws://localhost:9001/`
 
 
 Run the websocket tests
