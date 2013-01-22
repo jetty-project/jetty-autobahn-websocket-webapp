@@ -11,7 +11,7 @@
   </description>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <jetty-version>9.0.0-SNAPSHOT</jetty-version>
+    <jetty-version>9.0.0.M5</jetty-version>
   </properties>
   <dependencies>
     <dependency>
@@ -118,7 +118,7 @@
         <enabled>true</enabled>
       </snapshots>
       <releases>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
       </releases>
     </repository>
     <repository>
@@ -127,7 +127,7 @@
       <layout>default</layout>
       <url>https://oss.sonatype.org/content/groups/staging</url>
       <snapshots>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
       </snapshots>
       <releases>
         <enabled>true</enabled>
