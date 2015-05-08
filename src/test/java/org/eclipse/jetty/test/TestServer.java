@@ -16,6 +16,7 @@ package org.eclipse.jetty.test;
 import java.net.InetAddress;
 
 import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.server.ServerConnector;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 
@@ -33,7 +34,12 @@ public class TestServer
         System.out.printf("Jetty %s Websocket Echo Server%n",Server.getVersion());
 
         // Start Server
-        Server server = new Server(port);
+        Server server = new Server();
+        
+        ServerConnector connector = new ServerConnector(server);
+        connector.setPort(port);
+        connector.setIdleTimeout(10000);
+        server.addConnector(connector);
 
         ServletContextHandler context = new ServletContextHandler();
         context.setContextPath("/");

@@ -9,7 +9,7 @@ import org.eclipse.jetty.websocket.api.annotations.OnWebSocketConnect;
 import org.eclipse.jetty.websocket.api.annotations.OnWebSocketMessage;
 import org.eclipse.jetty.websocket.api.annotations.WebSocket;
 
-@WebSocket
+@WebSocket(maxIdleTime=5000, maxMessageSize=20_000_000)
 public class EchoSocket
 {
     private static Logger LOG = Log.getLogger(EchoSocket.class);
@@ -39,7 +39,7 @@ public class EchoSocket
     {
         if (LOG.isDebugEnabled())
         {
-            LOG.debug("onText({})",message);
+            LOG.debug("onText({})",message==null?"<null>":"length="+message.length());
         }
 
         // echo the message back.
