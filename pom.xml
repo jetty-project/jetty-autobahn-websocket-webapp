@@ -11,7 +11,7 @@
   </description>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <jetty-version>9.0.2.v20130417</jetty-version>
+    <jetty-version>9.3.2-SNAPSHOT</jetty-version>
   </properties>
   <dependencies>
     <dependency>
@@ -31,18 +31,16 @@
       <artifactId>jetty-servlet</artifactId>
       <version>${jetty-version}</version>
       <type>jar</type>
-      <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.jetty.orbit</groupId>
-      <artifactId>javax.servlet</artifactId>
-      <version>3.0.0.v201112011016</version>
-      <scope>provided</scope>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.1.2</version>
     </dependency>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <groupId>org.eclipse.jetty.toolchain</groupId>
+      <artifactId>jetty-test-helper</artifactId>
+      <version>3.0</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -53,8 +51,8 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>2.3.2</version>
         <configuration>
-          <source>1.7</source>
-          <target>1.7</target>
+          <source>1.8</source>
+          <target>1.8</target>
         </configuration>
       </plugin>
       <plugin>
@@ -73,8 +71,8 @@
                   <version>[3.0.0,)</version>
                 </requireMavenVersion>
                 <requireJavaVersion>
-                  <version>[1.7,)</version>
-                  <message>[ERROR] OLD JDK [${java.version}] in use. Jetty ${jetty-version} requires JDK 1.7 or newer</message>
+                  <version>[1.8,)</version>
+                  <message>[ERROR] OLD JDK [${java.version}] in use. Jetty ${jetty-version} requires JDK 1.8 or newer</message>
                 </requireJavaVersion>
              </rules>
             </configuration>
@@ -86,7 +84,7 @@
         <artifactId>exec-maven-plugin</artifactId>
         <version>1.2</version>
         <configuration>
-          <classpathScope>test</classpathScope>
+          <classpathScope>compile</classpathScope>
           <executable>java</executable>
           <arguments>
             <argument>-showversion</argument>

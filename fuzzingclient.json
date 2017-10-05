@@ -3,7 +3,7 @@
    "options": {"failByDrop": false},
    "outdir": "./target/reports/clients",
 
-   "servers": [{"agent": "Jetty-9.0.2.v20130417", "url": "ws://localhost:9001", "options": {"version": 18}}],
+   "servers": [{"agent": "Jetty-9.3.2-SNAPSHOT", "url": "ws://localhost:9001", "options": {"version": 18}}],
 
    "cases": ["*"],
    "exclude-cases": [],
