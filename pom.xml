@@ -4,14 +4,14 @@
   <groupId>org.eclipse.jetty.test</groupId>
   <artifactId>jetty-autobahn-websocket-webapp</artifactId>
   <packaging>war</packaging>
-  <version>9.0.2.v20130417</version>
+  <version>9.4.x</version>
   <name>jetty-autobahn-websocket-webapp Maven Webapp</name>
   <description>
     WebSocket Echo Servlet used to test jetty-websocket implementation using autobahn websocket test suite.
   </description>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <jetty-version>9.3.2-SNAPSHOT</jetty-version>
+    <jetty-version>9.4.8-SNAPSHOT</jetty-version>
   </properties>
   <dependencies>
     <dependency>
@@ -49,7 +49,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.3.2</version>
+        <version>3.6.2</version>
         <configuration>
           <source>1.8</source>
           <target>1.8</target>
@@ -58,7 +58,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
-        <version>1.1.1</version>
+        <version>3.0.0-M1</version>
         <executions>
           <execution>
             <id>enforce-java</id>
