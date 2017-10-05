@@ -9,8 +9,9 @@ The full installation instructions can be found at [http://autobahn.ws/testsuite
 **Debian / Ubuntu**
 
     $ sudo apt-get install python python-dev python-twisted
-    $ sudo apt-get install pip
+    $ sudo apt-get install python-pip
     $ sudo pip install autobahntestsuite
+
     
 **Redhat / Fedora**
 
