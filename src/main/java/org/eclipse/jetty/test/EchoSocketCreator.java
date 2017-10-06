@@ -34,7 +34,7 @@ public class EchoSocketCreator implements WebSocketCreator
         // manually negotiate extensions
         List<ExtensionConfig> negotiated = new ArrayList<>();
         // adding frame debug
-        negotiated.add(new ExtensionConfig("@frame-debug; output-dir=target"));
+        // negotiated.add(new ExtensionConfig("@frame-debug; output-dir=target"));
         for (ExtensionConfig config : req.getExtensions())
         {
             if (config.getName().equals("permessage-deflate"))

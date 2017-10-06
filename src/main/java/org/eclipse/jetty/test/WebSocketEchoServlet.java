@@ -24,7 +24,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.eclipse.jetty.websocket.common.extensions.FrameCaptureExtension;
 import org.eclipse.jetty.websocket.common.extensions.compress.PerMessageDeflateExtension;
 import org.eclipse.jetty.websocket.servlet.WebSocketServlet;
 import org.eclipse.jetty.websocket.servlet.WebSocketServletFactory;
@@ -43,7 +42,7 @@ public class WebSocketEchoServlet extends WebSocketServlet
         factory.getPolicy().setMaxBinaryMessageSize(bigFrameSize);
         factory.getPolicy().setMaxTextMessageSize(bigFrameSize);
         
-        factory.getExtensionFactory().register("@frame-debug",FrameCaptureExtension.class);
+        // factory.getExtensionFactory().register("@frame-debug",FrameCaptureExtension.class);
         factory.getExtensionFactory().register("permessage-deflate",PerMessageDeflateExtension.class);
 
         factory.setCreator(new EchoSocketCreator());
